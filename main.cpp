@@ -27,7 +27,7 @@ int main()
     std::condition_variable cv;
 
     auto threadProcessRequest = [&](std::stop_token stoken)
-	{
+    {
         while (!stoken.stop_requested())
         {
             std::unique_ptr<Request> request;
@@ -45,7 +45,7 @@ int main()
                 ProcessRequest(request.get());
             }
         }
-	};
+    };
 
     std::vector<std::jthread> pool;
     pool.reserve(NumberOfThreads);
